@@ -2,40 +2,82 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FitSharpMaui.Pages.MainMenuPage"
-             Title="MainMenuPage">
+             Title="Main Menu">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="30" VerticalOptions="Center">
-            <Label Text="FitSharp" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
+    <Grid BackgroundColor="#F5F5F5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
 
-            <Button Text="Group Classes" 
-                    Clicked="OnGroupClassesClicked"
-                    FontSize="Medium"
-                    HorizontalOptions="Center"
-                    BackgroundColor="#007AFF"
-                    TextColor="White" />
+        <!-- Logo Section -->
+        <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
+            <Image Source="fitsharplogomainpage.png" 
+                   Aspect="AspectFit" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HeightRequest="150" />
 
-            <Button Text="Personal Classes" 
-                    Clicked="OnPersonalClassesClicked"
-                    FontSize="Medium"
-                    HorizontalOptions="Center"
-                    BackgroundColor="#007AFF"
-                    TextColor="White" />
-
-            <Button Text="Gyms" 
-                    Clicked="OnGymsClicked"
-                    FontSize="Medium"
-                    HorizontalOptions="Center"
-                    BackgroundColor="#007AFF"
-                    TextColor="White" />
-
-            <Button Text="Instructors" 
-                    Clicked="OnInstructorsClicked"
-                    FontSize="Medium"
-                    HorizontalOptions="Center"
-                    BackgroundColor="#007AFF"
-                    TextColor="White" />
+            <!-- Descriptive Text -->
+            <Label Text="Your fitness journey starts here. Explore group classes, personal training, gyms, and top instructors!"
+                   FontSize="14" 
+                   TextColor="#444"
+                   HorizontalTextAlignment="Center"
+                   Margin="20,5,20,10" />
         </VerticalStackLayout>
-    </ScrollView>
+
+        <!-- Menu Buttons -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="10" Spacing="15" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                <!-- Title -->
+                <Label Text="Welcome to FitSharp" 
+                       FontSize="28" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" 
+                       TextColor="#B70D00" />
+
+                <!-- Buttons with Frame for Shadow -->
+                <Frame HasShadow="True" CornerRadius="15" Padding="0" WidthRequest="250" HorizontalOptions="Center">
+                    <Button Text="Group Classes" 
+                            Clicked="OnGroupClassesClicked"
+                            FontSize="Medium"
+                            CornerRadius="15"
+                            BackgroundColor="#B70D00"
+                            TextColor="White"
+                            HeightRequest="50" />
+                </Frame>
+
+                <Frame HasShadow="True" CornerRadius="15" Padding="0" WidthRequest="250" HorizontalOptions="Center">
+                    <Button Text="Personal Classes" 
+                            Clicked="OnPersonalClassesClicked"
+                            FontSize="Medium"
+                            CornerRadius="15"
+                            BackgroundColor="#B70D00"
+                            TextColor="White"
+                            HeightRequest="50" />
+                </Frame>
+
+                <Frame HasShadow="True" CornerRadius="15" Padding="0" WidthRequest="250" HorizontalOptions="Center">
+                    <Button Text="Gyms" 
+                            Clicked="OnGymsClicked"
+                            FontSize="Medium"
+                            CornerRadius="15"
+                            BackgroundColor="#B70D00"
+                            TextColor="White"
+                            HeightRequest="50" />
+                </Frame>
+
+                <Frame HasShadow="True" CornerRadius="15" Padding="0" WidthRequest="250" HorizontalOptions="Center">
+                    <Button Text="Instructors" 
+                            Clicked="OnInstructorsClicked"
+                            FontSize="Medium"
+                            CornerRadius="15"
+                            BackgroundColor="#B70D00"
+                            TextColor="White"
+                            HeightRequest="50" />
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 
 </ContentPage>

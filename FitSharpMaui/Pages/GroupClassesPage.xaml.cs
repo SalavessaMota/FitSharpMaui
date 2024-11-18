@@ -58,7 +58,7 @@ public partial class GroupClassesPage : ContentPage
                                 new Button
                                 {
                                     Text = "Enroll",
-                                    BackgroundColor = Colors.Green,
+                                    BackgroundColor = Color.FromArgb("#B70D00"),
                                     TextColor = Colors.White,
                                     Command = new Command(async () => await EnrollInClass(groupClass.Id))
                                 }
