@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitSharpMaui.Pages.MainMenuPage"
+             Title="MainMenuPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="30" VerticalOptions="Center">
+            <Label Text="FitSharp" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <Button Text="Group Classes" 
+                    Clicked="OnGroupClassesClicked"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    BackgroundColor="#007AFF"
+                    TextColor="White" />
+
+            <Button Text="Personal Classes" 
+                    Clicked="OnPersonalClassesClicked"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    BackgroundColor="#007AFF"
+                    TextColor="White" />
+
+            <Button Text="Gyms" 
+                    Clicked="OnGymsClicked"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    BackgroundColor="#007AFF"
+                    TextColor="White" />
+
+            <Button Text="Instructors" 
+                    Clicked="OnInstructorsClicked"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    BackgroundColor="#007AFF"
+                    TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

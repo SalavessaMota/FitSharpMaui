@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitSharpMaui.Pages.QuestionsPage"
+             Title="Frequently Asked Questions">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="15">
+
+            <Label Text="Frequently Asked Questions"
+                   FontSize="Large"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold" />
+
+            <StackLayout>
+                <Label Text="1. How can I book a class?"
+                       FontAttributes="Bold"
+                       FontSize="Medium" />
+                <Label Text="Navigate to the 'Classes' tab, select the desired class, and confirm your booking. Make sure you have an active membership with available class credits." />
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="2. Can I cancel a booked class?"
+                       FontAttributes="Bold"
+                       FontSize="Medium" />
+                <Label Text="Yes, you can cancel a booked class by navigating to the 'My Classes' section under the 'Profile' tab. Note that cancellations must be made at least 24 hours before the class start time." />
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="3. How do I view my membership details?"
+                       FontAttributes="Bold"
+                       FontSize="Medium" />
+                <Label Text="You can view your membership details in the 'Profile' tab under 'Membership Info'. It will display your membership type, start and end dates, and remaining class credits." />
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="4. How do I update my profile information?"
+                       FontAttributes="Bold"
+                       FontSize="Medium" />
+                <Label Text="Navigate to the 'Profile' tab and select 'Edit Profile'. From there, you can update your contact information, address, and other details." />
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="5. How can I check available classes?"
+                       FontAttributes="Bold"
+                       FontSize="Medium" />
+                <Label Text="In the 'Classes' tab, you can browse all available classes. Use the filters to narrow your search by date, instructor, or difficulty level." />
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="6. What should I do if I forgot my password?"
+                       FontAttributes="Bold"
+                       FontSize="Medium" />
+                <Label Text="If you forgot your password, tap on 'Forgot Password?' in the login screen and follow the instructions to reset your password via email." />
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="7. How can I contact support?"
+                       FontAttributes="Bold"
+                       FontSize="Medium" />
+                <Label Text="To contact support, go to the 'Profile' tab and tap on 'Contact Support'. You can also send us an email at support@fitsharp.com." />
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="8. What do I do if my membership expires?"
+                       FontAttributes="Bold"
+                       FontSize="Medium" />
+                <Label Text="If your membership expires, you can renew it in the 'Membership Info' section under the 'Profile' tab. Choose a new membership plan and complete the payment process." />
+            </StackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
