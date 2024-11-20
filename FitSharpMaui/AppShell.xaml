@@ -6,14 +6,32 @@
     xmlns:local="clr-namespace:FitSharpMaui"
     Title="FitSharpMaui"
     Shell.FlyoutBehavior="Disabled"
-    Shell.NavBarHasShadow="True"
-    Shell.BackgroundColor="#2196F3"
-    Shell.ForegroundColor="White"
-    Shell.TitleColor="White"
-    Shell.UnselectedColor="White"
-    Shell.DisabledColor="#BFBFBF"
-    Shell.TabBarTitleColor="AntiqueWhite"
-    Shell.TabBarBackgroundColor="#2196F3"
-    Shell.TabBarForegroundColor="White">
+    Shell.NavBarHasShadow="True">
+
+    <!-- Recursos para cores -->
+    <Shell.Resources>
+        <ResourceDictionary>
+            <!-- Definição de cores -->
+            <Color x:Key="PrimaryColor">#B70D00</Color>
+            <Color x:Key="SecondaryColor">#FFFFFF</Color>
+
+            <!-- Estilo para Shell -->
+            <Style TargetType="Shell">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource SecondaryColor}" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource SecondaryColor}" />
+                <Setter Property="Shell.DisabledColor" Value="#CCCCCC" />
+                <Setter Property="Shell.UnselectedColor" Value="#AAAAAA" />
+            </Style>
+
+            <!-- Estilo para TabBar -->
+            <Style TargetType="TabBar">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource SecondaryColor}" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource SecondaryColor}" />
+                <Setter Property="Shell.UnselectedColor" Value="#AAAAAA" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
 
 </Shell>

@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="FitSharpMaui.Pages.MainMenuPage"
              Title="Main Menu">
 
-    <Grid BackgroundColor="#F5F5F5">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="3*" />
-        </Grid.RowDefinitions>
+    <Grid>
+        <!-- Video Background -->
+        <toolkit:MediaElement
+        Source="https://aircinelmvc.blob.core.windows.net/resources/backgroundvideofitsharp2.mp4"
+        ShouldAutoPlay="True"
+        ShouldShowPlaybackControls="False"
+        Aspect="AspectFill"
+        ShouldLoopPlayback="True"
+        VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand" />
 
-        <!-- Logo Section -->
-        <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
-            <Image Source="fitsharplogomainpage.png" 
-                   Aspect="AspectFit" 
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   HeightRequest="150" />
-
-            <!-- Descriptive Text -->
-            <Label Text="Your fitness journey starts here. Explore group classes, personal training, gyms, and top instructors!"
-                   FontSize="14" 
-                   TextColor="#444"
-                   HorizontalTextAlignment="Center"
-                   Margin="20,5,20,10" />
-        </VerticalStackLayout>
-
-        <!-- Menu Buttons -->
-        <ScrollView Grid.Row="1">
+        <!-- Main Content -->
+        <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                    AbsoluteLayout.LayoutFlags="All">
             <VerticalStackLayout Padding="10" Spacing="15" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
-                <!-- Title -->
-                <Label Text="Welcome to FitSharp" 
-                       FontSize="28" 
-                       FontAttributes="Bold" 
-                       HorizontalOptions="Center" 
-                       TextColor="#B70D00" />
+                <!-- Logo -->
+                <Image Source="fitsharplogomainpage.png" 
+                       Aspect="AspectFit" 
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HeightRequest="150" />
 
-                <!-- Buttons with Frame for Shadow -->
+                <!-- Descriptive Text -->
+                <Label Text="Your fitness journey starts here. Explore group classes, personal training, gyms, and top instructors!"
+                       FontSize="14" 
+                       TextColor="#444"
+                       HorizontalTextAlignment="Center"
+                       Margin="20,5,20,10" 
+                       BackgroundColor="White"/>
+
+                <!-- Menu Buttons -->
                 <Frame HasShadow="True" CornerRadius="15" Padding="0" WidthRequest="250" HorizontalOptions="Center">
                     <Button Text="Group Classes" 
                             Clicked="OnGroupClassesClicked"
@@ -79,5 +78,4 @@
             </VerticalStackLayout>
         </ScrollView>
     </Grid>
-
 </ContentPage>

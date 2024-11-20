@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Views;
 using FitSharpMaui.Services;
 
 namespace FitSharpMaui.Pages;
@@ -30,5 +31,14 @@ public partial class MainMenuPage : ContentPage
     private async void OnInstructorsClicked(object sender, EventArgs e)
     {
         //await Navigation.PushAsync(new InstructorsPage(_apiService));
+    }
+
+    private void MediaElement_MediaEnded(object sender, EventArgs e)
+    {
+        var mediaElement = sender as MediaElement;
+        if (mediaElement != null)
+        {
+            mediaElement.Play();
+        }
     }
 }
