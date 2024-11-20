@@ -85,4 +85,9 @@ public partial class ProfilePage : ContentPage
 
         Application.Current!.MainPage = new NavigationPage(new MainMenuPage(_apiService));
     }
+
+    private async void MyGroupClasses_Tapped(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new CustomerGroupClassesPage(_apiService));
+    }
 }

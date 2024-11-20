@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FitSharpMaui.Pages.ProfilePage"
              Title="ProfilePage">
-    
+
     <Grid RowDefinitions="Auto,5*,1*" RowSpacing="0">
 
         <VerticalStackLayout Grid.Row="0"
@@ -25,16 +25,27 @@
 
         </VerticalStackLayout>
 
-
         <VerticalStackLayout Grid.Row="1"
                          Margin="20"
                          Spacing="20">
-            
+
+            <HorizontalStackLayout Spacing="10">
+                <Image Source="groupclasses.png" HeightRequest="30" />
+                <Label Text="My Group Classes"
+                       FontAttributes="Bold"
+                       FontSize="Small" />
+                <HorizontalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="MyGroupClasses" Tapped="MyGroupClasses_Tapped"/>
+                </HorizontalStackLayout.GestureRecognizers>
+            </HorizontalStackLayout>
+
+            <Border HeightRequest="1" BackgroundColor="Gray" />
+
             <HorizontalStackLayout Spacing="10">
                 <Image Source="perfilconfig" HeightRequest="30" />
                 <Label Text="My Account"
-                   FontAttributes="Bold"
-                   FontSize="Small" />
+                       FontAttributes="Bold"
+                       FontSize="Small" />
                 <HorizontalStackLayout.GestureRecognizers>
                     <TapGestureRecognizer x:Name="MyAccount" Tapped="MyAccount_Tapped" />
                 </HorizontalStackLayout.GestureRecognizers>
@@ -45,8 +56,8 @@
             <HorizontalStackLayout Spacing="10">
                 <Image Source="perguntas" HeightRequest="30" />
                 <Label Text="Frequent Questions"
-                   FontAttributes="Bold"
-                   FontSize="Small" />
+                       FontAttributes="Bold"
+                       FontSize="Small" />
                 <HorizontalStackLayout.GestureRecognizers>
                     <TapGestureRecognizer x:Name="Faq" Tapped="Faq_Tapped"/>
                 </HorizontalStackLayout.GestureRecognizers>
@@ -65,5 +76,5 @@
             x:Name="BtnLogout"
             Clicked="BtnLogout_Clicked"/>
     </Grid>
-    
+
 </ContentPage>

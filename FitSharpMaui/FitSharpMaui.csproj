@@ -43,7 +43,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\fitsharplogosplash.svg" Color="#512BD4" BaseSize="512,205" />
+		<MauiSplashScreen Include="Resources\Splash\fitsharplogosplash.svg" Color="#FFFFFF" BaseSize="512,205" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -70,6 +70,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\CustomerGroupClassesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\GroupClassesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -32,13 +32,4 @@ public partial class MainMenuPage : ContentPage
     {
         //await Navigation.PushAsync(new InstructorsPage(_apiService));
     }
-
-    private void MediaElement_MediaEnded(object sender, EventArgs e)
-    {
-        var mediaElement = sender as MediaElement;
-        if (mediaElement != null)
-        {
-            mediaElement.Play();
-        }
-    }
 }

@@ -26,16 +26,34 @@ public partial class GroupClassesPage : ContentPage
 
         try
         {
+            // Obtém o token do cliente autenticado (se existir)
             var token = Preferences.Get("AuthToken", string.Empty);
 
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            // Define o cabeçalho de autorização para a solicitação HTTP
+            _httpClient.DefaultRequestHeaders.Authorization =
+                string.IsNullOrEmpty(token) ? null : new AuthenticationHeaderValue("Bearer", token);
 
-            var response = await _httpClient.GetAsync("api/GroupClasses/Available");
+            HttpResponseMessage response;
+
+            // Seleciona o endpoint correto com base na presença do token
+            if (string.IsNullOrEmpty(token))
+            {
+                response = await _httpClient.GetAsync("api/GroupClasses/Available");
+            }
+            else
+            {
+                response = await _httpClient.GetAsync("api/GroupClasses/Upcoming");
+            }
+
+            // Verifica se a resposta foi bem-sucedida
             if (response.IsSuccessStatusCode)
             {
                 var groupClasses = await response.Content.ReadFromJsonAsync<List<GroupClassDto>>();
 
+                // Limpa os elementos existentes no StackLayout
                 ClassesStackLayout.Children.Clear();
+
+                // Renderiza as informações das aulas
                 foreach (var groupClass in groupClasses)
                 {
                     var classFrame = new Frame
@@ -48,21 +66,42 @@ public partial class GroupClassesPage : ContentPage
                         {
                             Spacing = 10,
                             Children =
+                        {
+                            new Label
                             {
-                                new Label { Text = groupClass.Title, FontSize = 18, FontAttributes = FontAttributes.Bold },
-                                new Label { Text = $"Gym: {groupClass.Gym}", FontSize = 14 },
-                                new Label { Text = $"Instructor: {groupClass.Instructor}", FontSize = 14 },
-                                new Label { Text = $"Duration: {groupClass.Start} - {groupClass.End}", FontSize = 14 },
-                                new Label { Text = $"Rating: {groupClass.InstructorScore}/5", FontSize = 14 },
-
-                                new Button
-                                {
-                                    Text = "Enroll",
-                                    BackgroundColor = Color.FromArgb("#B70D00"),
-                                    TextColor = Colors.White,
-                                    Command = new Command(async () => await EnrollInClass(groupClass.Id))
-                                }
+                                Text = groupClass.Title,
+                                FontSize = 18,
+                                FontAttributes = FontAttributes.Bold
+                            },
+                            new Label
+                            {
+                                Text = $"Gym: {groupClass.Gym}",
+                                FontSize = 14
+                            },
+                            new Label
+                            {
+                                Text = $"Instructor: {groupClass.Instructor}",
+                                FontSize = 14
+                            },
+                            new Label
+                            {
+                                Text = $"Duration: {groupClass.Start} - {groupClass.End}",
+                                FontSize = 14
+                            },
+                            new Label
+                            {
+                                Text = $"Rating: {groupClass.InstructorScore}/5",
+                                FontSize = 14
+                            },
+                            new Button
+                            {
+                                Text = "Enroll",
+                                BackgroundColor = Color.FromArgb("#B70D00"),
+                                TextColor = Colors.White,
+                                IsVisible = true,
+                                Command = new Command(async () => await EnrollInClass(groupClass.Id))
                             }
+                        }
                         }
                     };
 
@@ -71,16 +110,18 @@ public partial class GroupClassesPage : ContentPage
             }
             else
             {
-                await DisplayAlert("Error", "Failed to load group classes.", "OK");
+                // Exibe mensagem de erro em caso de falha
+                await DisplayAlert("Error", $"Failed to load group classes. ({response.ReasonPhrase})", "OK");
             }
         }
         catch (Exception ex)
         {
+            // Tratamento de exceção genérica
             await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
         }
     }
 
-    private async Task EnrollInClass(int classId)
+private async Task EnrollInClass(int classId)
     {
         var token = Preferences.Get("AuthToken", string.Empty);
 
@@ -101,6 +142,8 @@ public partial class GroupClassesPage : ContentPage
         {
             var result = await response.Content.ReadAsStringAsync();
             await DisplayAlert("Success", "Successfully enrolled in the class!", "OK");
+
+            OnAppearing();
         }
         else
         {
