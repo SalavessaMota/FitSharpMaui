@@ -1,6 +1,5 @@
 using FitSharpMaui.Services;
 using System.Net.Http.Headers;
-using System.Net.Http.Json;
 
 namespace FitSharpMaui.Pages;
 
@@ -10,8 +9,8 @@ public partial class ProfilePage : ContentPage
     private readonly ApiService _apiService;
 
     public ProfilePage(ApiService apiService)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         _httpClient = new HttpClient
         {
             //BaseAddress = new Uri("https://k6glbgpq-5001.uks1.devtunnels.ms/")
@@ -23,6 +22,7 @@ public partial class ProfilePage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
+        this.Title = "Your Profile";
 
         try
         {
@@ -58,12 +58,8 @@ public partial class ProfilePage : ContentPage
         LblUsername.Text = Preferences.Get("UserName", string.Empty);
     }
 
-
-
-
     private void MyAccount_Tapped(object sender, TappedEventArgs e)
     {
-
     }
 
     private void Faq_Tapped(object sender, TappedEventArgs e)
@@ -73,7 +69,6 @@ public partial class ProfilePage : ContentPage
 
     private void ImgBtnProfile_Clicked(object sender, EventArgs e)
     {
-
     }
 
     private void BtnLogout_Clicked(object sender, EventArgs e)
@@ -89,5 +84,10 @@ public partial class ProfilePage : ContentPage
     private async void MyGroupClasses_Tapped(object sender, TappedEventArgs e)
     {
         await Navigation.PushAsync(new CustomerGroupClassesPage(_apiService));
+    }
+
+    private async void MyPersonalClasses_Tapped(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new CustomerPersonalClassesPage(_apiService));
     }
 }

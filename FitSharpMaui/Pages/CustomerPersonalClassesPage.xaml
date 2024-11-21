@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FitSharpMaui.Pages.GroupClassesPage"
-             Title="Available Group Classes">
+             x:Class="FitSharpMaui.Pages.CustomerPersonalClassesPage"
+             Title="CustomerPersonalClasses">
 
     <ScrollView>
 
         <ScrollView>
-            <VerticalStackLayout x:Name="ClassesStackLayout" Padding="10" Spacing="15" />
+            <VerticalStackLayout x:Name="CustomerClassesStackLayout" Padding="10" Spacing="15" />
         </ScrollView>
     </ScrollView>
 </ContentPage>

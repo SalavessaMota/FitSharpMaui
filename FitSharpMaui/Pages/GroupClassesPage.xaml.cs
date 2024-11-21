@@ -23,6 +23,7 @@ public partial class GroupClassesPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
+        this.Title = "Group Classes";
 
         try
         {
@@ -90,7 +91,7 @@ public partial class GroupClassesPage : ContentPage
                             },
                             new Label
                             {
-                                Text = $"Rating: {groupClass.InstructorScore}/5",
+                                Text = $"Instructor Rating: {groupClass.InstructorScore}/5",
                                 FontSize = 14
                             },
                             new Button
@@ -121,7 +122,7 @@ public partial class GroupClassesPage : ContentPage
         }
     }
 
-private async Task EnrollInClass(int classId)
+    private async Task EnrollInClass(int classId)
     {
         var token = Preferences.Get("AuthToken", string.Empty);
 

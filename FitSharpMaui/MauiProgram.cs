@@ -1,7 +1,6 @@
-﻿using FitSharpMaui.Services;
+﻿using CommunityToolkit.Maui;
+using FitSharpMaui.Services;
 using Microsoft.Extensions.Logging;
-using CommunityToolkit.Maui;
-using CommunityToolkit.Maui;
 
 namespace FitSharpMaui
 {

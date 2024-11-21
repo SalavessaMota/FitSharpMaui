@@ -4,11 +4,10 @@
              x:Class="FitSharpMaui.Pages.HomePage"
              Title="HomePage">
 
-
     <ScrollView>
         <StackLayout Padding="10" Spacing="15">
-            <Label Text="Upcoming Flights" 
-                   FontSize="Large" 
+            <Label Text="Upcoming Flights"
+                   FontSize="Large"
                    HorizontalOptions="Center" />
 
             <!-- Lista de Voos com ScrollView -->
@@ -17,6 +16,4 @@
             </StackLayout>
         </StackLayout>
     </ScrollView>
-
-
 </ContentPage>

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FitSharpMaui.Pages.LoginPage"
              Title="LoginPage">
-    
+
     <Grid RowDefinitions="Auto,Auto,Auto,Auto,*"
       RowSpacing="20"
       Margin="20,150,20,40">
@@ -12,10 +12,10 @@
            Source="logoFitSharpnavbar.png"
            Aspect="AspectFit"
            HeightRequest="50"
-           WidthRequest="300" 
+           WidthRequest="300"
            HorizontalOptions="CenterAndExpand"
            VerticalOptions="Start" />
-        
+
         <Label Grid.Row="1"
            Text="Login"
            FontAttributes="Bold"
@@ -39,9 +39,9 @@
         <Button Grid.Row="3"
             Text="Enter"
             FontSize="Medium"
-            x:Name="BtnSignIn" 
+            x:Name="BtnSignIn"
             BackgroundColor="#a90409"
-            Clicked="BtnSignIn_Clicked"/>
+            Clicked="BtnSignIn_Clicked" />
         <HorizontalStackLayout Grid.Row="4"
                            Spacing="2"
                            HorizontalOptions="Center"
@@ -50,10 +50,9 @@
             <Label Text="Sign up now" TextColor="#a90409" FontAttributes="Bold">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer x:Name="TapRegister"
-                                      Tapped="TapRegister_Tapped"/>
+                                      Tapped="TapRegister_Tapped" />
                 </Label.GestureRecognizers>
             </Label>
         </HorizontalStackLayout>
     </Grid>
-    
 </ContentPage>

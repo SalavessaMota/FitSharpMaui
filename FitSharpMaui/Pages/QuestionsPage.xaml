@@ -67,8 +67,6 @@
                        FontSize="Medium" />
                 <Label Text="If your membership expires, you can renew it in the 'Membership Info' section under the 'Profile' tab. Choose a new membership plan and complete the payment process." />
             </StackLayout>
-
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

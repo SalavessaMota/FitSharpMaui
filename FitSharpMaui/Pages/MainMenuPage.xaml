@@ -19,13 +19,13 @@
         <!-- Main Content -->
         <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                     AbsoluteLayout.LayoutFlags="All">
-            <VerticalStackLayout Padding="10" Spacing="15" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+            <VerticalStackLayout Padding="10" Spacing="15" VerticalOptions="Start" HorizontalOptions="Center">
                 <!-- Logo -->
-                <Image Source="fitsharplogomainpage.png" 
-                       Aspect="AspectFit" 
+                <Image Source="fitsharplogomainpage.png"
+                       Aspect="AspectFit"
                        HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       HeightRequest="150" />
+                       VerticalOptions="StartAndExpand"
+                       HeightRequest="125" />
 
                 <!-- Descriptive Text -->
                 <Frame HasShadow="true" CornerRadius="15" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Opacity="0.8">
@@ -35,17 +35,27 @@
                        FontAttributes="Bold"
                        TextColor="#444"
                        HorizontalTextAlignment="Center"
-                       Margin="20,10,20,10" 
+                       Margin="20,10,20,10"
                        BackgroundColor="White"
-                       Opacity="1"/>                    
+                       Opacity="1" />
+                </Frame>
+
+                <!-- QR Code Button -->
+                <Frame x:Name="QRCode" HasShadow="True" CornerRadius="15" Padding="0" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center" BackgroundColor="White">
+                    <ImageButton 
+                                 Source="qrcode.png"
+                                 Aspect="AspectFit"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 Clicked="ImageButton_Clicked" />
                 </Frame>
                 
-
                 <!-- Menu Buttons -->
                 <Frame HasShadow="True" CornerRadius="15" Padding="0" WidthRequest="250" HorizontalOptions="Center">
-                    <Button Text="Group Classes" 
+                    <Button Text="Group Classes"
                             Clicked="OnGroupClassesClicked"
                             FontSize="Medium"
+                            FontAttributes="Bold"
                             CornerRadius="15"
                             BackgroundColor="#B70D00"
                             TextColor="White"
@@ -53,9 +63,10 @@
                 </Frame>
 
                 <Frame HasShadow="True" CornerRadius="15" Padding="0" WidthRequest="250" HorizontalOptions="Center">
-                    <Button Text="Personal Classes" 
+                    <Button Text="Personal Classes"
                             Clicked="OnPersonalClassesClicked"
                             FontSize="Medium"
+                            FontAttributes="Bold"
                             CornerRadius="15"
                             BackgroundColor="#B70D00"
                             TextColor="White"
@@ -63,9 +74,10 @@
                 </Frame>
 
                 <Frame HasShadow="True" CornerRadius="15" Padding="0" WidthRequest="250" HorizontalOptions="Center">
-                    <Button Text="Gyms" 
+                    <Button Text="Gyms"
                             Clicked="OnGymsClicked"
                             FontSize="Medium"
+                            FontAttributes="Bold"
                             CornerRadius="15"
                             BackgroundColor="#B70D00"
                             TextColor="White"
@@ -73,9 +85,10 @@
                 </Frame>
 
                 <Frame HasShadow="True" CornerRadius="15" Padding="0" WidthRequest="250" HorizontalOptions="Center">
-                    <Button Text="Instructors" 
+                    <Button Text="Instructors"
                             Clicked="OnInstructorsClicked"
                             FontSize="Medium"
+                            FontAttributes="Bold"
                             CornerRadius="15"
                             BackgroundColor="#B70D00"
                             TextColor="White"

@@ -12,7 +12,7 @@ public class ApiService
     private readonly string _baseUrl = "https://FitSharp.azurewebsites.net/";
     private readonly ILogger<ApiService> _logger;
 
-    JsonSerializerOptions _serializerOptions;
+    private JsonSerializerOptions _serializerOptions;
 
     public ApiService(HttpClient httpClient, ILogger<ApiService> logger)
     {
@@ -23,7 +23,6 @@ public class ApiService
             PropertyNameCaseInsensitive = true
         };
     }
-
 
     public async Task<ApiResponse<bool>> RegisterUser(string name, string email,
                                                           string phone, string password)
@@ -60,7 +59,6 @@ public class ApiService
             return new ApiResponse<bool> { ErrorMessage = ex.Message };
         }
     }
-
 
     public async Task<ApiResponse<bool>> Login(string email, string password)
     {
@@ -167,8 +165,5 @@ public class ApiService
             _logger.LogError($"Error getting cities: {ex.Message}");
             return new ApiResponse<List<City>> { ErrorMessage = ex.Message };
         }
-
     }
-
-
 }

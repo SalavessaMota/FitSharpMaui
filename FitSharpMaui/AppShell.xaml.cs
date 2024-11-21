@@ -12,7 +12,7 @@ namespace FitSharpMaui
             InitializeComponent();
             _apiService = apiService;
 
-            ConfigureShell(); 
+            ConfigureShell();
         }
 
         private void ConfigureShell()
@@ -29,7 +29,5 @@ namespace FitSharpMaui
                 }
             });
         }
-
-
     }
 }

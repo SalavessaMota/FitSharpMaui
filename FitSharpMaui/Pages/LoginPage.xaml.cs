@@ -12,8 +12,8 @@ public partial class LoginPage : ContentPage
     private readonly ApiService _apiService;
 
     public LoginPage(ApiService apiService)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         _httpClient = new HttpClient
         {
             //BaseAddress = new Uri("https://k6glbgpq-5001.uks1.devtunnels.ms/")
@@ -56,7 +56,6 @@ public partial class LoginPage : ContentPage
 
                     await DisplayAlert("Success", "Login successful! Welcome.", "OK");
                     Application.Current.MainPage = new NavigationPage(new AppShell(_apiService));
-
                 }
                 else
                 {

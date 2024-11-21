@@ -78,7 +78,6 @@ public partial class RegisterPage : ContentPage
         }
     }
 
-
     private async void BtnSignup_Clicked(object sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(FirstNameEntry.Text) ||
@@ -190,11 +189,9 @@ public partial class RegisterPage : ContentPage
         return Guid.Empty;
     }
 
-
     private async void TapLogin_Tapped(object sender, EventArgs e)
     {
         // Navegar para a página de login
         await Navigation.PushAsync(new LoginPage(_apiService));
     }
-
 }

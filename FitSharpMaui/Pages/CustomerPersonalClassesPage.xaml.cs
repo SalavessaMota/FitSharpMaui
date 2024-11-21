@@ -5,12 +5,12 @@ using System.Net.Http.Json;
 
 namespace FitSharpMaui.Pages;
 
-public partial class CustomerGroupClassesPage : ContentPage
+public partial class CustomerPersonalClassesPage : ContentPage
 {
     private readonly HttpClient _httpClient;
     private readonly ApiService _apiService;
 
-    public CustomerGroupClassesPage(ApiService apiService)
+    public CustomerPersonalClassesPage(ApiService apiService)
     {
         InitializeComponent();
 
@@ -25,7 +25,7 @@ public partial class CustomerGroupClassesPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        this.Title = "Your Group Classes";
+        this.Title = "Your Personal Classes";
 
         try
         {
@@ -42,16 +42,16 @@ public partial class CustomerGroupClassesPage : ContentPage
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             // Chama o endpoint para obter as aulas inscritas
-            var response = await _httpClient.GetAsync("api/GroupClasses/Enrolled");
+            var response = await _httpClient.GetAsync("api/PersonalClasses/Enrolled");
 
             if (response.IsSuccessStatusCode)
             {
-                var enrolledClasses = await response.Content.ReadFromJsonAsync<List<GroupClassDto>>();
+                var enrolledClasses = await response.Content.ReadFromJsonAsync<List<PersonalClassDto>>();
 
                 // Atualiza a interface com as aulas inscritas
                 CustomerClassesStackLayout.Children.Clear();
 
-                foreach (var groupClass in enrolledClasses)
+                foreach (var personalClass in enrolledClasses)
                 {
                     // Cria uma interface dinâmica para cada aula inscrita
                     var classFrame = new Frame
@@ -66,32 +66,32 @@ public partial class CustomerGroupClassesPage : ContentPage
                             {
                                 new Label
                                 {
-                                    Text = groupClass.Title,
+                                    Text = personalClass.Title,
                                     FontAttributes = FontAttributes.Bold,
                                     FontSize = 18,
                                     HorizontalOptions = LayoutOptions.Start
                                 },
                                 new Label
                                 {
-                                    Text = $"Gym: {groupClass.Gym}",
+                                    Text = $"Gym: {personalClass.Gym}",
                                     FontSize = 14,
                                     HorizontalOptions = LayoutOptions.Start
                                 },
                                 new Label
                                 {
-                                    Text = $"Instructor: {groupClass.Instructor}",
+                                    Text = $"Instructor: {personalClass.Instructor}",
                                     FontSize = 14,
                                     HorizontalOptions = LayoutOptions.Start
                                 },
                                 new Label
                                 {
-                                    Text = $"Duration: {groupClass.Start} - {groupClass.End}",
+                                    Text = $"Duration: {personalClass.Start} - {personalClass.End}",
                                     FontSize = 14,
                                     HorizontalOptions = LayoutOptions.Start
                                 },
                                 new Label
                                 {
-                                    Text = $"Rating: {groupClass.InstructorScore}/5",
+                                    Text = $"Rating: {personalClass.InstructorScore}/5",
                                     FontSize = 14,
                                     HorizontalOptions = LayoutOptions.Start
                                 },
@@ -100,8 +100,8 @@ public partial class CustomerGroupClassesPage : ContentPage
                                     Text = "Cancel Enrollment",
                                     BackgroundColor = Color.FromArgb("#B70D00"),
                                     TextColor = Colors.White,
-                                    IsVisible = DateTime.TryParse(groupClass.Start, out var startDate) && startDate > DateTime.Now,
-                                    Command = new Command(async () => await CancelEnrollment(groupClass.Id))
+                                    IsVisible = DateTime.TryParse(personalClass.Start, out var startDate) && startDate > DateTime.Now,
+                                    Command = new Command(async () => await CancelEnrollment(personalClass.Id))
                                 }
                             }
                         }
@@ -112,7 +112,7 @@ public partial class CustomerGroupClassesPage : ContentPage
             }
             else
             {
-                await DisplayAlert("Error", "Failed to load your group classes.", "OK");
+                await DisplayAlert("Error", "Failed to load your personal classes.", "OK");
             }
         }
         catch (Exception ex)
@@ -135,7 +135,7 @@ public partial class CustomerGroupClassesPage : ContentPage
 
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            var response = await _httpClient.PostAsJsonAsync("api/GroupClasses/Unenroll", classId);
+            var response = await _httpClient.PostAsJsonAsync("api/PersonalClasses/Unenroll", classId);
 
             if (response.IsSuccessStatusCode)
             {

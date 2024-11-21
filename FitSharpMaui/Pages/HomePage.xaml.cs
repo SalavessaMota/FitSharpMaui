@@ -1,8 +1,4 @@
-using FitSharpMaui.Models;
-using FitSharpMaui.Models.Dtos;
 using FitSharpMaui.Services;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
 
 namespace FitSharpMaui.Pages;
 
@@ -27,7 +23,7 @@ public partial class HomePage : ContentPage
 
         try
         {
-            //var token = Preferences.Get("AuthToken", string.Empty);            
+            //var token = Preferences.Get("AuthToken", string.Empty);
 
             //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
@@ -106,8 +102,4 @@ public partial class HomePage : ContentPage
             //await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
         }
     }
-
-    
-
-
 }

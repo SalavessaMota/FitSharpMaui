@@ -4,12 +4,10 @@
              x:Class="FitSharpMaui.Pages.CustomerGroupClassesPage"
              Title="Your Group Classes">
 
-
     <ScrollView>
 
         <ScrollView>
             <VerticalStackLayout x:Name="CustomerClassesStackLayout" Padding="10" Spacing="15" />
         </ScrollView>
     </ScrollView>
-    
 </ContentPage>
