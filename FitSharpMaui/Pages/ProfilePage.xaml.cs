@@ -58,9 +58,6 @@ public partial class ProfilePage : ContentPage
         LblUsername.Text = Preferences.Get("UserName", string.Empty);
     }
 
-    private void MyAccount_Tapped(object sender, TappedEventArgs e)
-    {
-    }
 
     private void Faq_Tapped(object sender, TappedEventArgs e)
     {
@@ -89,5 +86,10 @@ public partial class ProfilePage : ContentPage
     private async void MyPersonalClasses_Tapped(object sender, TappedEventArgs e)
     {
         await Navigation.PushAsync(new CustomerPersonalClassesPage(_apiService));
+    }
+
+    private async void MyMembership_Tapped(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new MembershipPage(_apiService));
     }
 }

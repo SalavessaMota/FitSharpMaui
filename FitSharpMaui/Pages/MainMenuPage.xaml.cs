@@ -1,3 +1,4 @@
+using FitSharpMaui.Models;
 using FitSharpMaui.Services;
 
 namespace FitSharpMaui.Pages;
@@ -19,7 +20,7 @@ public partial class MainMenuPage : ContentPage
 
         var token = Preferences.Get("AuthToken", string.Empty);
         QRCode.IsVisible = !string.IsNullOrEmpty(token);
-
+        Login.IsVisible = string.IsNullOrEmpty(token);
     }
 
     private async void OnGroupClassesClicked(object sender, EventArgs e)
@@ -45,5 +46,10 @@ public partial class MainMenuPage : ContentPage
     private async void ImageButton_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new QrCodePage());
+    }
+
+    private async void ImageButton_Clicked_1(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new LoginPage(_apiService));
     }
 }
