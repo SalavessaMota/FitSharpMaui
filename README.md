@@ -27,11 +27,7 @@
 - **Backend**: ASP.NET MVC Web API
 - **Database**: SQL Server (via APIs)
 - **Cloud Services**: Azure Blob Storage for media management
-- **Architecture**: MVVM (Model-View-ViewModel)
-- **Libraries & Tools**:
-  - CommunityToolkit.Mvvm for MVVM architecture
-  - Syncfusion for UI components
-  - Azure SDK for Blob Storage integration
+- **Libraries & Tools**: Azure SDK for Blob Storage integration
 
 ---
 
