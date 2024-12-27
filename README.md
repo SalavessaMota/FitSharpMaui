@@ -61,7 +61,7 @@ FitSharpMAUI communicates with the **FitSharp Web App - API Controllers**, consu
 - **Memberships**: Viewing membership details.
 - **User Profiles**: Fetching and updating user information.
 
-
+---
 
 ## 💬 Contact
 
