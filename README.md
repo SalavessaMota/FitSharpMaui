@@ -42,7 +42,6 @@
 ## 📂 Folder Structure
 
 - **/Models**: Defines the app's data models.
-- **/ViewModels**: Implements the MVVM pattern with binding logic.
 - **/Views**: Contains all UI components and XAML files.
 - **/Services**: Handles API calls and data fetching logic.
 - **/Helpers**: Utility classes for tasks like file handling and validation.
